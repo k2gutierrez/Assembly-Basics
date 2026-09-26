@@ -29,7 +29,6 @@ pragma solidity 0.8.30;
 /// checks, bounds checking, etc.). Use it carefully!
 ///
 contract AssemblyBasics {
-    
     // ═══════════════════════════════════════════════════════════════════════
     // SECTION 1: STORAGE - Persistent Data (sstore / sload)
     // ═══════════════════════════════════════════════════════════════════════
@@ -250,5 +249,4 @@ contract AssemblyBasics {
             result := mload(offset)
         }
     }
-
 }

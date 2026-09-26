@@ -27,7 +27,6 @@ pragma solidity 0.8.30;
 ///    - Delegate calls with precise control
 ///
 contract AssemblyUtils {
-
     // ═══════════════════════════════════════════════════════════════════════
     // SECTION 1: ENVIRONMENT INFORMATION
     // ═══════════════════════════════════════════════════════════════════════
@@ -95,8 +94,8 @@ contract AssemblyUtils {
     function efficientHash(uint256 a, uint256 b) external pure returns (bytes32 result) {
         assembly {
             // Use scratch space (0x00-0x3F) for hashing - Solidity reserves this area
-            mstore(0x00, a)      // Store `a` at memory position 0x00 (32 bytes)
-            mstore(0x20, b)      // Store `b` at memory position 0x20 (32 bytes)
+            mstore(0x00, a) // Store `a` at memory position 0x00 (32 bytes)
+            mstore(0x20, b) // Store `b` at memory position 0x20 (32 bytes)
             result := keccak256(0x00, 0x40) // Hash 64 bytes starting at 0x00
         }
     }
@@ -139,5 +138,4 @@ contract AssemblyUtils {
             b := and(packed, 0xffffffffffffffffffffffffffffffff)
         }
     }
-
 }

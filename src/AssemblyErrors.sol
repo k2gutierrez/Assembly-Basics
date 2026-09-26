@@ -27,7 +27,6 @@ pragma solidity 0.8.30;
 /// and are more gas-efficient because they skip string encoding.
 ///
 contract AssemblyErrors {
-
     // ─── Custom Errors ─────────────────────────────
     error Overflow();
     error ConditionFailed();
@@ -115,7 +114,7 @@ contract AssemblyErrors {
             result := mul(a, b)
             // Check: if a != 0 AND result / a != b, then overflow
             if and(
-                iszero(iszero(a)),        // a != 0
+                iszero(iszero(a)), // a != 0
                 iszero(eq(div(result, a), b)) // result / a != b
             ) {
                 mstore(0x00, 0x35278d1200000000000000000000000000000000000000000000000000000000)
@@ -123,5 +122,4 @@ contract AssemblyErrors {
             }
         }
     }
-
 }
